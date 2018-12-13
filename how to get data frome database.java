@@ -17,11 +17,9 @@
 
         mUseDATA.addChildEventListener(new ChildEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                //Toast.makeText(UseList.this, dataSnapshot.getValue().toString(),Toast.LENGTH_LONG).show();
-                String value = dataSnapshot.getValue().toString();
-                
-                mData.add(value);
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {               
+                String valu = "\nValue: "+dataSnapshot.child("Amount").getValue().toString()+"\nReason: "+dataSnapshot.child("Reason").getValue().toString()+"\nTime: "+dataSnapshot.child("Time").getValue().toString()+"\n";
+                mData.add(valu);
                 arrayAdapter.notifyDataSetChanged();
             }
 
